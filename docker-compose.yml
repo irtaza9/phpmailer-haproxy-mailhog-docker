@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  mailhog1:
+    image: mailhog/mailhog
+    ports:
+      - "1025:1025"  # SMTP
+      - "8025:8025"  # Web UI
+
+  mailhog2:
+    image: mailhog/mailhog
+    ports:
+      - "1026:1025"  # SMTP
+      - "8026:8025"  # Web UI
+
+  haproxy:
+    image: haproxy:latest
+    volumes:
+      - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
+    ports:
+      - "2525:2525"  # HAProxy SMTP proxy
+
+  phpmailer:
+    build: .
+    ports:
+      - "8080:80"    # Access PHPMailer test file

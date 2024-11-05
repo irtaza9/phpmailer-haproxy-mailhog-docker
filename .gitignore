@@ -1,0 +1,25 @@
+/vendor/
+
+docker-compose.override.yml  # In case you create environment-specific overrides
+*.log                        # Logs from Docker or other services
+*.pid                        # PID files from Docker services
+
+*.env                        # Environment variables (if any are added later)
+
+.DS_Store                    # macOS system file
+Thumbs.db                    # Windows system file
+ehthumbs.db                  # Windows system file
+desktop.ini                  # Windows system file
+
+.idea/
+.vscode/
+
+node_modules/
+
+**/.docker
+
+*.bak
+*.swp
+*~
+
+phpmailer_test.php
